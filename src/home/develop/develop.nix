@@ -22,6 +22,7 @@
     enabled = "fcitx5";
     fcitx5.addons = with pkgs; [
       fcitx5-skk
+      fcitx5-mozc
     ];
   };
 
