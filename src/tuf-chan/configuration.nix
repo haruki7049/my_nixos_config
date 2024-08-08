@@ -36,10 +36,72 @@
   i18n = {
     defaultLocale = "en_US.UTF-8";
     inputMethod = {
-      fcitx5 = { addons = with pkgs; [ fcitx5-mozc fcitx5-skk fcitx5-gtk ]; };
+      fcitx5 = {
+        addons = with pkgs; [ fcitx5-mozc fcitx5-skk fcitx5-gtk ];
+        waylandFrontend = true;
+        settings = {
+          #addons = {
+          #  skk = {
+          #    "Rule" = "default";
+          #    "PunctuationStyle" = "Japanese";
+          #    "InitialInputMode" = "Latin";
+          #    "PageSize" = 7;
+          #    "Candidate Layout" = "Vertical";
+          #    "EggLikeNewLine" = false;
+          #    "ShowAnnotation" = true;
+          #    "CandidateChooseKey" = "Digit (0,1,2,...)";
+          #    "NTriggersToShowCandWin" = 4;
+          #    #"CandidatesPageUpKey"."0" = "Page_Up";
+          #    #"CandidatesPageDownKey"."0" = "Next";
+          #    #"CursorUp"."0" = "Up";
+          #    #"CursorDown"."0" = "Down";
+          #  };
+          #};
+
+          globalOptions = {
+            "Hotkey" = {
+              "EnumerateWithTriggerKeys" = false;
+              "EnumerateSkipFirst" = false;
+            };
+
+            "Behavior" = {
+              "ActiveByDefault" = false;
+              "resetStateWhenFocusIn" = "No";
+              "ShareInputState" = "No";
+              "PreeditEnabledByDefault" = true;
+              "ShowInputMethodInformation" = true;
+              "showInputMethodInformationWhenFocusIn" = false;
+              "CompactInputMethodInformation" = true;
+              "ShowFirstInputMethodInformation" = true;
+              "DefaultPageSize" = 5;
+              "OverrideXkbOption" = false;
+              "PreloadInputMethod" = true;
+              "AllowInputMethodForPassword" = false;
+              "ShowPreeditForPassword" = false;
+              "AutoSavePeriod" = 30;
+            };
+          };
+
+          inputMethod = {
+            "Groups/0" = {
+              "Name" = "Default";
+              "Default Layout" = "us";
+              "DefaultIM" = "skk";
+            };
+
+            "Groups/0/Items/0" = {
+              "Name" = "skk";
+            };
+
+            "GroupOrder" = {
+              "0" = "Default";
+            };
+          };
+        };
+      };
       uim = { toolbar = "gtk3-systray"; };
-      type = "uim";
-      enabled = "uim";
+      type = "fcitx5";
+      enabled = "fcitx5";
     };
   };
 
