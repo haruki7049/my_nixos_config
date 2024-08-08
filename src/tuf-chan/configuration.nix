@@ -40,23 +40,24 @@
         addons = with pkgs; [ fcitx5-mozc fcitx5-skk fcitx5-gtk ];
         waylandFrontend = true;
         settings = {
-          #addons = {
-          #  skk = {
-          #    "Rule" = "default";
-          #    "PunctuationStyle" = "Japanese";
-          #    "InitialInputMode" = "Latin";
-          #    "PageSize" = 7;
-          #    "Candidate Layout" = "Vertical";
-          #    "EggLikeNewLine" = false;
-          #    "ShowAnnotation" = true;
-          #    "CandidateChooseKey" = "Digit (0,1,2,...)";
-          #    "NTriggersToShowCandWin" = 4;
-          #    #"CandidatesPageUpKey"."0" = "Page_Up";
-          #    #"CandidatesPageDownKey"."0" = "Next";
-          #    #"CursorUp"."0" = "Up";
-          #    #"CursorDown"."0" = "Down";
-          #  };
-          #};
+          addons = {
+            skk = {
+              globalSection = {
+                "Rule" = "default";
+                "PunctuationStyle" = "Japanese";
+                "InitialInputMode" = "Latin";
+                "PageSize" = 7;
+                "Candidate Layout" = "Vertical";
+                "EggLikeNewLine" = false;
+                "ShowAnnotation" = true;
+                "CandidateChooseKey" = "Digit (0,1,2,...)";
+                "NTriggersToShowCandWin" = 4;
+
+                "[CursorUp]\n0" = "Up";
+                "[CursorDown]\n0" = "Down";
+              };
+            };
+          };
 
           globalOptions = {
             "Hotkey" = {
