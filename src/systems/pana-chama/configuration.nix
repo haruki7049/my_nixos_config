@@ -42,6 +42,10 @@
     pulseaudio.enable = false;
     bluetooth.enable = true;
     steam-hardware.enable = true;
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
   };
 
   security = {
