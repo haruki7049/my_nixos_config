@@ -34,6 +34,8 @@
           enmac = inputs.nix-darwin.lib.darwinSystem {
             system = "aarch64-darwin";
             modules = [
+              inputs.home-manager.darwinModules.home-manager
+
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
