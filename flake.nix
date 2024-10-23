@@ -32,19 +32,19 @@
         nixosConfigurations = {
           tuf-chan = x86_64-linux-pc {
             systemConfiguration = ./src/systems/tuf-chan/configuration.nix;
-            userhome-configs = import ./src/home/users/default.nix;
+            userhome-configs = import ./src/home/linux/users/default.nix;
           };
           pana-chama = x86_64-linux-pc {
             systemConfiguration = ./src/systems/pana-chama/configuration.nix;
-            userhome-configs = import ./src/home/users/default.nix;
+            userhome-configs = import ./src/home/linux/users/default.nix;
           };
           spectre-chan = x86_64-linux-pc {
             systemConfiguration = ./src/systems/spectre-chan/configuration.nix;
-            userhome-configs = import ./src/home/users/default.nix;
+            userhome-configs = import ./src/home/linux/users/default.nix;
           };
           latitude-chan = x86_64-linux-pc {
             systemConfiguration = ./src/systems/latitude-chan/configuration.nix;
-            userhome-configs = import ./src/home/users/default.nix;
+            userhome-configs = import ./src/home/linux/users/default.nix;
           };
         };
 
