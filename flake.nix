@@ -55,7 +55,13 @@
             };
 
             modules = [
-              ./src/home/users/haruki.nix
+              {
+                home = {
+                  username = "haruki";
+                  homeDirectory = "/home/haruki";
+                  stateVersion = "24.05";
+                };
+              }
             ];
           };
         };
