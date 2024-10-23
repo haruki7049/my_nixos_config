@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nix-darwin.url = "github:LnL7/nix-darwin";
     nixos-wsl.url = "github:nix-community/nixos-wsl";
     home-manager.url = "github:nix-community/home-manager";
     treefmt-nix.url = "github:numtide/treefmt-nix";
@@ -29,6 +30,24 @@
       ];
 
       flake = {
+        darwinConfigurations = {
+          enmac = inputs.nix-darwin.lib.darwinSystem {
+            system = "aarch64-darwin";
+            modules = [
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.users.haruki = { ... }: {
+                  home = {
+                    username = "haruki";
+                    homeDirectory = "/Users/haruki";
+                  };
+                };
+              }
+            ];
+          };
+        };
+
         nixosConfigurations = {
           tuf-chan = x86_64-linux-pc {
             systemConfiguration = ./src/systems/tuf-chan/configuration.nix;
@@ -45,39 +64,6 @@
           latitude-chan = x86_64-linux-pc {
             systemConfiguration = ./src/systems/latitude-chan/configuration.nix;
             userhome-configs = import ./src/home/linux/users/default.nix;
-          };
-        };
-
-        homeConfigurations = {
-          "haruki-aarch64-darwin" = inputs.home-manager.lib.homeManagerConfiguration {
-            pkgs = import inputs.nixpkgs {
-              system = "aarch64-darwin";
-            };
-
-            modules = [
-              {
-                home = {
-                  username = "haruki";
-                  homeDirectory = "/Users/haruki";
-                  stateVersion = "24.05";
-                };
-              }
-            ];
-          };
-          "haruki-x86_64-linux" = inputs.home-manager.lib.homeManagerConfiguration {
-            pkgs = import inputs.nixpkgs {
-              system = "x86_64-linux";
-            };
-
-            modules = [
-              {
-                home = {
-                  username = "haruki";
-                  homeDirectory = "/home/haruki";
-                  stateVersion = "24.05";
-                };
-              }
-            ];
           };
         };
       };
