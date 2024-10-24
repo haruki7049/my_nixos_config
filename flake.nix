@@ -34,8 +34,6 @@
           enmac = inputs.nix-darwin.lib.darwinSystem {
             system = "aarch64-darwin";
             modules = [
-              inputs.home-manager.darwinModules.home-manager
-
               {
                 services = {
                   nix-daemon.enable = true;
