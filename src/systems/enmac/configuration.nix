@@ -11,6 +11,8 @@
     };
     casks = [
       "alacritty"
+      "google-chrome"
+      "visual-studio-code"
     ];
   };
 
