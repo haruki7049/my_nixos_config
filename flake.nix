@@ -45,6 +45,11 @@
                     homeDirectory = lib.mkForce "/Users/haruki";
                     stateVersion = "24.05";
                   };
+
+                  programs = {
+                    neovim.enable = true;
+                    vim.enable = true;
+                  };
                 };
                 services = {
                   nix-daemon.enable = true;
