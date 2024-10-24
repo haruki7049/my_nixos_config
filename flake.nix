@@ -39,12 +39,10 @@
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
-                home-manager.users.haruki = { ... }: {
-                  home = {
-                    username = "haruki";
-                    homeDirectory = "/Users/haruki";
-                  };
+                services = {
+                  nix-daemon.enable = true;
                 };
+                system.stateVersion = 5;
               }
             ];
           };
