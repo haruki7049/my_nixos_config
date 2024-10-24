@@ -3,6 +3,23 @@
 {
   services.nix-daemon.enable = true;
 
+  homebrew = {
+    enable = true;
+    onActivation = {
+      autoUpdate = false;
+      cleanup = "uninstall";
+    };
+    casks = [
+      "alacritty"
+    ];
+  };
+
+  environment.systemPackages = [
+    pkgs.vim
+    pkgs.neovim
+    pkgs.git
+  ];
+
   programs = {
     bash.enable = true;
     zsh.enable = true;
