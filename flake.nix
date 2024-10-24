@@ -39,6 +39,13 @@
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
+                home-manager.users.haruki = { lib, ... }: {
+                  home = {
+                    username = "haruki";
+                    homeDirectory = lib.mkForce "/Users/haruki";
+                    stateVersion = "24.05";
+                  };
+                };
                 services = {
                   nix-daemon.enable = true;
                 };
