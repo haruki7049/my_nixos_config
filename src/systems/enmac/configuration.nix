@@ -20,6 +20,12 @@
     pkgs.git
   ];
 
+  fonts = {
+    packages = [
+      pkgs.udev-gothic-nf
+    ];
+  };
+
   programs = {
     bash.enable = true;
     zsh.enable = true;
