@@ -34,12 +34,7 @@
           enmac = inputs.nix-darwin.lib.darwinSystem {
             system = "aarch64-darwin";
             modules = [
-              {
-                services = {
-                  nix-daemon.enable = true;
-                };
-                system.stateVersion = 5;
-              }
+              ./src/systems/enmac/configuration.nix
             ];
           };
         };
